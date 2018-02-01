@@ -153,7 +153,7 @@ contract Startions is ERC20,Startions,Ownable {
         _;
     }
 
-    function PoSToken() {
+    function startions() {
         maxTotalSupply = 10**25; // 21 Mil.
         totalInitialSupply = 10**24; // 11 Mil.
 
@@ -256,7 +256,7 @@ contract Startions is ERC20,Startions,Ownable {
         // Due to the high interest rate for the first two years, compounding should be taken into account.
         // Effective annual interest rate = (1 + (nominal rate / number of compounding periods)) ^ (number of compounding periods) - 1
         if((_now.sub(stakeStartTime)).div(1 years) == 0) {
-            // 1st year effective annual interest rate is 100% when we select the stakeMaxAge (90 days) as the compounding period.
+            // 1st year effective annual interest rate is 100% when we select the stakeMaxAge (120 days) as the compounding period.
             interest = (770 * maxMintProofOfStake).div(100);
         } else if((_now.sub(stakeStartTime)).div(1 years) == 1){
             // 2nd year effective annual interest rate is 50%
