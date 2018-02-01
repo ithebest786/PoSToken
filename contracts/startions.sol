@@ -97,10 +97,10 @@ contract ERC20 is ERC20Basic {
 
 
 /**
- * @title PoSTokenStandard
- * @dev the interface of PoSTokenStandard
+ * @title Startions
+ * @dev the interface of Startions
  */
-contract PoSTokenStandard {
+contract startions {
     uint256 public stakeStartTime;
     uint256 public stakeMinAge;
     uint256 public stakeMaxAge;
@@ -111,18 +111,18 @@ contract PoSTokenStandard {
 }
 
 
-contract PoSToken is ERC20,PoSTokenStandard,Ownable {
+contract Startions is ERC20,Startions,Ownable {
     using SafeMath for uint256;
 
-    string public name = "PoSToken";
-    string public symbol = "POS";
+    string public name = "Startions";
+    string public symbol = "XTN";
     uint public decimals = 18;
 
     uint public chainStartTime; //chain start time
     uint public chainStartBlockNumber; //chain start block number
     uint public stakeStartTime; //stake start time
-    uint public stakeMinAge = 3 days; // minimum age for coin age: 3D
-    uint public stakeMaxAge = 90 days; // stake age of full weight: 90D
+    uint public stakeMinAge = 5 days; // minimum age for coin age: 5D
+    uint public stakeMaxAge = 120 days; // stake age of full weight: 120D
     uint public maxMintProofOfStake = 10**17; // default 10% annual interest
 
     uint public totalSupply;
@@ -154,8 +154,8 @@ contract PoSToken is ERC20,PoSTokenStandard,Ownable {
     }
 
     function PoSToken() {
-        maxTotalSupply = 10**25; // 10 Mil.
-        totalInitialSupply = 10**24; // 1 Mil.
+        maxTotalSupply = 10**25; // 21 Mil.
+        totalInitialSupply = 10**24; // 11 Mil.
 
         chainStartTime = now;
         chainStartBlockNumber = block.number;
